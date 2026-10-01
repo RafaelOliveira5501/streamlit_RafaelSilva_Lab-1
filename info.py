@@ -1,4 +1,4 @@
-profile_picture = "Images/profile.jpeg"
+profile_picture = "images/profile.jpeg"
 about_me = (
     "I'm Rafael Oliveira e Silva, a Computer Science student at Georgia Tech "
     "(Threads: Intelligence and Device). I'm passionate about robotics, AI, and "
@@ -53,16 +53,16 @@ experience_data = {
         "- Led 3 programmers on robot software, optimizing 35+ Java modules and integrating PhotonVision for autonomous target tracking; team was the only one in Brazil to use PhotonVision, achieving 100% autonomous accuracy.",
         "- Contributed to a team recognized as the 3rd Brazilian rookie to win the Rookie All Star Award at FRC Worlds (2024).",
         "- Piloted the robot at a competition after promotion to Tech Lead in 2025; team won the Creativity Award at the Brazil Regional."
-    ], "Images/jactech.jpg"),
+    ], "images/jactech.jpg"),
     "Robotics Researcher, RL & Computer Vision — Curieux Academic Journal (May 2024 – Sep 2024)": ([
         "- Synthesized 18 sources on RL and Computer Vision for autonomous robot navigation, identifying 4 key trends.",
         "- Research accepted for publication in Curieux Academic Journal."
-    ], "Images/curieux.jpg"),
+    ], "images/curieux.jpg"),
     "Artificial Intelligence Researcher — Immerse Education (May 2025 – Sep 2025)": ([
         "- Developed a paper on how ML, AI, and Python can support professors teaching students with learning deficiencies.",
         "- Presented the project at a national academic event with 400+ attendees.",
         "- Awarded 2,500 EUR for the project's innovative impact."
-    ], "Images/immerse.jpg"),
+    ], "images/immerse.jpg"),
 }
 
 projects_data = {
@@ -95,14 +95,14 @@ programming_data = {
 }
 
 programming_icons = {
-    "Java": "",
-    "C++": "",
-    "Python": "",
-    "JavaScript": "",
+    "Java": "☕",
+    "C++": "⚙️",
+    "Python": "🐍",
+    "JavaScript": "🟨",
 }
 spoken_icons = {
-    "English": "",
-    "Portuguese": "",
+    "English": "🇺🇸",
+    "Portuguese": "🇧🇷",
 }
 
 spoken_data = {
@@ -113,10 +113,10 @@ spoken_data = {
 leadership_data = {
     "Mentor and Instructor — Robotics Mentorship Program (Apr 2023 – Aug 2024)": ([
         "- Mentored 30+ students in robotics programming, designing 90+ classes on electronics, Python, and competition presentation; led teams to national competitions, including a Top 10 state ranking for two consecutive years."
-    ], "Images/mentorship.jpg"),
+    ], "images/mentorship.jpg"),
     "Co-Founder and Programmer — Astronautics STEM Initiative (Jan 2023 – Jan 2024)": ([
         "- Co-founded a national astronautics competition to promote STEM education through rocketry, reaching 100+ participants across 7 Brazilian states; built the initiative's website using HTML, CSS, JavaScript, and React."
-    ], "Images/astronautics.jpg"),
+    ], "images/astronautics.jpg"),
 }
 
 activity_data = {

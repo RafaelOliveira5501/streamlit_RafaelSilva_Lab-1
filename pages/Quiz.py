@@ -4,7 +4,7 @@ import info
 CAREERS = { 
     "AI Engineer": {
         "image": "images/ai.png",
-        "emoji": "",
+        "emoji": "🤖",
         "blurb": "You love patterns, data, and teaching machines to think. "
                  "Look into machine learning, neural networks, and language models.",
         "next_steps": [
@@ -15,7 +15,7 @@ CAREERS = {
     },
     "Robotics Engineer": {
         "image": "images/robotics.png",
-        "emoji": "",
+        "emoji": "🦾",
         "blurb": "You want your code to move things in the real world. "
                  "Look into controls, sensors, and mechatronics.",
         "next_steps": [
@@ -26,7 +26,7 @@ CAREERS = {
     },
     "Space Systems Engineer": {
         "image": "images/space.png",
-        "emoji": "",
+        "emoji": "🚀",
         "blurb": "You think big and look up. "
                  "Look into orbital mechanics, spacecraft design, and mission software.",
         "next_steps": [
@@ -103,16 +103,16 @@ def quiz():
     st.title("Which Future Tech Career Fits You?") 
     st.write("Answer the questions below and find out which career path matches your style.")
 
-    col_a, col_b, col_c = st.columns(3)  # NEW
+    col_a, col_b, col_c = st.columns(3)  #NEW
     with col_a:
-        st.image("images/ai.png", caption="Artificial Intelligence")  # NEW
+        st.image("images/ai.png", caption="Artificial Intelligence")  #NEW
     with col_b:
-        st.image("images/robotics.png", caption="Robotics")  # NEW
+        st.image("images/robotics.png", caption="Robotics")  #NEW
     with col_c:
-        st.image("images/space.png", caption="Space Exploration")  # NEW
+        st.image("images/space.png", caption="Space Exploration")  #NEW
 
-    with st.form("career_quiz"):  # NEW
-        q1 = st.radio(  # NEW
+    with st.form("career_quiz"):  #NEW
+        q1 = st.radio(  #NEW
             "1. Pick a weekend project:",
             [
                 "Train a model that recognizes my handwriting",
@@ -122,7 +122,7 @@ def quiz():
             key="q1",
         )
 
-        q2 = st.multiselect(  # NEW
+        q2 = st.multiselect(  #NEW
             "2. Which of these get you excited? (pick any)",
             [
                 "Python and neural networks",
@@ -135,14 +135,14 @@ def quiz():
             key="q2",
         )
 
-        q3 = st.slider(  # NEW
+        q3 = st.slider(  #NEW
             "3. How much do you prefer building physical things over writing software? "
             "(0 = only software, 10 = only hardware)",
             0, 10, 5,
             key="q3",
         )
 
-        q4 = st.selectbox(  # NEW
+        q4 = st.selectbox(  #NEW
             "4. Choose your dream workplace:",
             [
                 "A research lab full of GPUs",
@@ -152,15 +152,15 @@ def quiz():
             key="q4",
         ) 
 
-        q5 = st.number_input(  # NEW
+        q5 = st.number_input(  #NEW
             "5. In how many years do you think humans will walk on Mars?",
             min_value=1, max_value=100, value=15, step=1,
             key="q5",
         )
 
-        q6 = st.toggle("6. I would rather test my code on a real machine than in a simulation.", key="q6")  # NEW
+        q6 = st.toggle("6. I would rather test my code on a real machine than in a simulation.", key="q6")  #NEW
 
-        submitted = st.form_submit_button("See my result")  # NEW
+        submitted = st.form_submit_button("See my result")  #NEW
 
     if submitted:
         if len(q2) == 0:
@@ -170,8 +170,8 @@ def quiz():
             st.session_state["result"] = max(
                 st.session_state["scores"], key=st.session_state["scores"].get
             )
-            st.toast("Quiz submitted!")  # NEW
-            st.balloons()  # NEW
+            st.toast("Quiz submitted!")  #NEW
+            st.balloons()  #NEW
 
     if "result" in st.session_state:
         show_result(st.session_state["result"], st.session_state["scores"])
@@ -181,14 +181,14 @@ def show_result(result, scores):
     info_box = CAREERS[result]
     total = sum(scores.values())
 
-    st.divider()  # NEW
+    st.divider()  #NEW
     st.header(f"{info_box['emoji']} Your match: {result}")
-    st.progress(scores[result] / total, text=f"{round(100 * scores[result] / total)}% match")  # NEW
+    st.progress(scores[result] / total, text=f"{round(100 * scores[result] / total)}% match")  #NEW
 
-    tab_result, tab_scores = st.tabs(["Your result", "Score breakdown"])  # NEW
+    tab_result, tab_scores = st.tabs(["Your result", "Score breakdown"])  #NEW
 
     with tab_result:
-        st.image(info_box["image"], width=400)  # NEW
+        st.image(info_box["image"], width=400)  #NEW
         st.write(info_box["blurb"])
         with st.expander("Next steps you could take"):
             for step in info_box["next_steps"]:
