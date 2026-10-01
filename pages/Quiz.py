@@ -1,12 +1,7 @@
 import streamlit as st
 import info
 
-# ---------------------------------------------------------------------------
-# Quiz: "Which Future Tech Career Fits You?"
-# Results: AI Engineer, Robotics Engineer, or Space Systems Engineer
-# ---------------------------------------------------------------------------
-
-CAREERS = {
+CAREERS = { 
     "AI Engineer": {
         "image": "images/ai.png",
         "emoji": "",
@@ -42,22 +37,18 @@ CAREERS = {
     },
 }
 
-# Every widget key used by the form, so the quiz can be reset cleanly
 WIDGET_KEYS = ["q1", "q2", "q3", "q4", "q5", "q6"]
 
 
 def reset_quiz():
-    """Callback for the retake button: clears answers and the saved result."""
     for key in WIDGET_KEYS + ["scores", "result"]:
         if key in st.session_state:
             del st.session_state[key]
 
 
 def score_answers(q1, q2, q3, q4, q5, q6):
-    """Turn the user's answers into points for each career."""
     scores = {"AI Engineer": 0, "Robotics Engineer": 0, "Space Systems Engineer": 0}
 
-    # Q1: multiple choice
     q1_points = {
         "Train a model that recognizes my handwriting": "AI Engineer",
         "Build a robot that solves a maze": "Robotics Engineer",
@@ -65,7 +56,6 @@ def score_answers(q1, q2, q3, q4, q5, q6):
     }
     scores[q1_points[q1]] += 2
 
-    # Q2: multi-select, one point per pick
     q2_points = {
         "Python and neural networks": "AI Engineer",
         "Motors, sensors, and microcontrollers": "Robotics Engineer",
@@ -77,7 +67,7 @@ def score_answers(q1, q2, q3, q4, q5, q6):
     for choice in q2:
         scores[q2_points[choice]] += 1
 
-    # Q3: slider from pure software (0) to pure hardware (10)
+    
     if q3 <= 3:
         scores["AI Engineer"] += 2
     elif q3 <= 6:
@@ -86,7 +76,6 @@ def score_answers(q1, q2, q3, q4, q5, q6):
     else:
         scores["Robotics Engineer"] += 2
 
-    # Q4: dream workplace (selectbox)
     q4_points = {
         "A research lab full of GPUs": "AI Engineer",
         "A workshop with robots everywhere": "Robotics Engineer",
@@ -94,7 +83,6 @@ def score_answers(q1, q2, q3, q4, q5, q6):
     }
     scores[q4_points[q4]] += 2
 
-    # Q5: number input, years until humans walk on Mars
     if q5 <= 10:
         scores["Space Systems Engineer"] += 2
     elif q5 <= 25:
@@ -102,7 +90,6 @@ def score_answers(q1, q2, q3, q4, q5, q6):
     else:
         scores["AI Engineer"] += 1
 
-    # Q6: toggle, prefer testing on real hardware
     if q6:
         scores["Robotics Engineer"] += 1
         scores["Space Systems Engineer"] += 1
@@ -124,7 +111,6 @@ def quiz():
     with col_c:
         st.image("images/space.png", caption="Space Exploration")  # NEW
 
-    # Everything is inside a form so the quiz only scores when the user submits
     with st.form("career_quiz"):  # NEW
         q1 = st.radio(  # NEW
             "1. Pick a weekend project:",
@@ -184,7 +170,7 @@ def quiz():
             st.session_state["result"] = max(
                 st.session_state["scores"], key=st.session_state["scores"].get
             )
-            st.toast("Quiz submitted!", icon="✅")  # NEW
+            st.toast("Quiz submitted!")  # NEW
             st.balloons()  # NEW
 
     if "result" in st.session_state:
@@ -204,7 +190,7 @@ def show_result(result, scores):
     with tab_result:
         st.image(info_box["image"], width=400)  # NEW
         st.write(info_box["blurb"])
-        with st.expander("Next steps you could take"):  # NEW
+        with st.expander("Next steps you could take"):
             for step in info_box["next_steps"]:
                 st.write(f"- {step}")
 
