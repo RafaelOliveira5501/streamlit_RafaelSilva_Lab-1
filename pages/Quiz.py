@@ -4,7 +4,6 @@ import info
 CAREERS = { 
     "AI Engineer": {
         "image": "images/ai.png",
-        "emoji": "🤖",
         "blurb": "You love patterns, data, and teaching machines to think. "
                  "Look into machine learning, neural networks, and language models.",
         "next_steps": [
@@ -15,7 +14,6 @@ CAREERS = {
     },
     "Robotics Engineer": {
         "image": "images/robotics.png",
-        "emoji": "🦾",
         "blurb": "You want your code to move things in the real world. "
                  "Look into controls, sensors, and mechatronics.",
         "next_steps": [
@@ -26,7 +24,6 @@ CAREERS = {
     },
     "Space Systems Engineer": {
         "image": "images/space.png",
-        "emoji": "🚀",
         "blurb": "You think big and look up. "
                  "Look into orbital mechanics, spacecraft design, and mission software.",
         "next_steps": [
@@ -182,7 +179,7 @@ def show_result(result, scores):
     total = sum(scores.values())
 
     st.divider()  #NEW
-    st.header(f"{info_box['emoji']} Your match: {result}")
+    st.header(f"Your match: {result}")
     st.progress(scores[result] / total, text=f"{round(100 * scores[result] / total)}% match")  #NEW
 
     tab_result, tab_scores = st.tabs(["Your result", "Score breakdown"])  #NEW

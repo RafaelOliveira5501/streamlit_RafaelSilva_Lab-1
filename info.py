@@ -94,16 +94,6 @@ programming_data = {
     "JavaScript": 60,
 }
 
-programming_icons = {
-    "Java": "☕",
-    "C++": "⚙️",
-    "Python": "🐍",
-    "JavaScript": "🟨",
-}
-spoken_icons = {
-    "English": "🇺🇸",
-    "Portuguese": "🇧🇷",
-}
 
 spoken_data = {
     "English": "Fluent",
